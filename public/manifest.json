@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "FB Active Status",
+  "version": "1.0.0",
+  "description": "Blocks Facebook's realtime WebSocket connections to show the last active time instead of \"Active now\".",
+  "minimum_chrome_version": "111",
+  "permissions": ["declarativeNetRequest", "storage"],
+  "host_permissions": [
+    "https://*.facebook.com/*",
+    "https://*.messenger.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "FB Active Status",
+    "default_popup": "popup.html"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "facebook_realtime",
+        "enabled": true,
+        "path": "rules/facebook-realtime.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,453 @@
+@import "tailwindcss";
+
+@source "../public/popup.html";
+@source "./popup.ts";
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("fonts/be-vietnam-pro-vietnamese-400-normal.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+    U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+    U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("fonts/be-vietnam-pro-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url("fonts/be-vietnam-pro-vietnamese-500-normal.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+    U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+    U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url("fonts/be-vietnam-pro-latin-500-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url("fonts/be-vietnam-pro-vietnamese-600-normal.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+    U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+    U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url("fonts/be-vietnam-pro-latin-600-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url("fonts/be-vietnam-pro-vietnamese-700-normal.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+    U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+    U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url("fonts/be-vietnam-pro-latin-700-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: url("fonts/be-vietnam-pro-vietnamese-800-normal.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+    U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+    U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: url("fonts/be-vietnam-pro-latin-800-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@theme {
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Same in every theme, so it sits outside the theme blocks */
+:root {
+  --brand-ring: #1877f2;
+  --brand-ring-soft: rgba(0, 102, 255, 0.4);
+  --brand-logo-from: #1d7afc;
+  --brand-logo-to: #0a56d9;
+}
+
+:root.theme-initializing {
+  visibility: hidden;
+}
+
+:root.theme-initializing *,
+:root.theme-initializing *::before,
+:root.theme-initializing *::after {
+  transition: none !important;
+}
+
+:root {
+  color-scheme: light;
+  --bg-app: #f1f4f9;
+  --card-border: rgba(0, 0, 0, 0.07);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+
+  --header-btn-bg: rgba(0, 0, 0, 0.04);
+  --header-btn-border: rgba(0, 0, 0, 0.08);
+  --header-btn-hover: rgba(0, 0, 0, 0.08);
+
+  --status-on-bg: #d1fae5;
+  --status-on-border: #86efac;
+  --status-on-title: #14532d;
+  --status-on-desc: #166534;
+  --status-on-shadow: 0 2px 4px rgba(15, 23, 42, 0.08);
+  --status-on-shield: #16a34a;
+  --status-on-dot-outer: rgba(34, 197, 94, 0.22);
+  --status-on-dot-inner: #16a34a;
+
+  --status-off-bg: #f8fafc;
+  --status-off-border: #e2e8f0;
+  --status-off-title: #334155;
+  --status-off-desc: #64748b;
+  --status-off-shield: #94a3b8;
+  --status-off-dot-outer: rgba(148, 163, 184, 0.18);
+  --status-off-dot-inner: #94a3b8;
+
+  --setting-card-bg: #ffffff;
+  --setting-card-border: rgba(0, 0, 0, 0.06);
+  --setting-icon-bg: #f1f5f9;
+  --setting-icon-color: #64748b;
+
+  --btn-primary-bg: linear-gradient(180deg, #1877f2 0%, #0056e0 100%);
+  --btn-primary-hover-bg: linear-gradient(180deg, #126fe8 0%, #004fce 100%);
+  --btn-primary-shadow: 0 3px 6px rgba(15, 23, 42, 0.18);
+
+  --btn-pending-bg: linear-gradient(180deg, #d97706 0%, #b45309 100%);
+  --btn-pending-hover-bg: linear-gradient(180deg, #c26505 0%, #9a3f07 100%);
+  --btn-pending-shadow: 0 3px 8px rgba(180, 83, 9, 0.3);
+
+  --switch-off-bg: #cbd5e1;
+  --switch-on-bg: #0066ff;
+  --switch-on-hover-bg: #0057d9;
+  --switch-on-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+
+  --feedback-color: #15803d;
+  --pending-color: #b45309;
+  --error-color: #dc2626;
+
+  font-family:
+    "Be Vietnam Pro", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background: var(--bg-app);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-app: #0a0f1d;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-main: #f8fafc;
+  --text-muted: #8da2be;
+
+  --header-btn-bg: rgba(255, 255, 255, 0.05);
+  --header-btn-border: rgba(255, 255, 255, 0.09);
+  --header-btn-hover: rgba(255, 255, 255, 0.1);
+
+  --status-on-bg: #052719;
+  --status-on-border: rgba(34, 197, 94, 0.35);
+  --status-on-title: #ffffff;
+  --status-on-desc: #86efac;
+  --status-on-shadow: 0 2px 4px rgba(0, 0, 0, 0.28);
+  --status-on-shield: #22c55e;
+  --status-on-dot-outer: rgba(34, 197, 94, 0.16);
+  --status-on-dot-inner: #22c55e;
+
+  --status-off-bg: #151e2e;
+  --status-off-border: rgba(255, 255, 255, 0.08);
+  --status-off-title: #94a3b8;
+  --status-off-desc: #64748b;
+  --status-off-shield: #64748b;
+  --status-off-dot-outer: rgba(100, 116, 139, 0.14);
+  --status-off-dot-inner: #64748b;
+
+  --setting-card-bg: #131c2c;
+  --setting-card-border: rgba(255, 255, 255, 0.08);
+  --setting-icon-bg: rgba(255, 255, 255, 0.06);
+  --setting-icon-color: #94a3b8;
+
+  --btn-primary-bg: linear-gradient(180deg, #1877f2 0%, #0056e0 100%);
+  --btn-primary-hover-bg: linear-gradient(180deg, #126fe8 0%, #004fce 100%);
+  --btn-primary-shadow: 0 3px 6px rgba(0, 0, 0, 0.32);
+
+  --btn-pending-bg: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  --btn-pending-hover-bg: linear-gradient(180deg, #ea8c04 0%, #c26505 100%);
+  --btn-pending-shadow: 0 3px 10px rgba(217, 119, 6, 0.4);
+
+  --switch-off-bg: #2d3748;
+  --switch-on-bg: #0066ff;
+  --switch-on-hover-bg: #0057d9;
+  --switch-on-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  --feedback-color: #4ade80;
+  --pending-color: #fbbf24;
+  --error-color: #f87171;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spinIcon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pendingPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.status-card::before,
+.status-card::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid;
+  pointer-events: none;
+}
+
+.status-card::before {
+  right: -30px;
+  bottom: -40px;
+  width: 160px;
+  height: 160px;
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.status-card::after {
+  right: -70px;
+  bottom: -80px;
+  width: 230px;
+  height: 230px;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Each state only sets variables, the rules below read them */
+.status-card[data-enabled="true"] {
+  --card-border-color: var(--status-on-border);
+  --card-bg-color: var(--status-on-bg);
+  --card-shadow: var(--status-on-shadow);
+  --indicator-bg: var(--status-on-dot-outer);
+  --dot-bg: var(--status-on-dot-inner);
+  --title-color: var(--status-on-title);
+  --desc-color: var(--status-on-desc);
+  --shield-stroke: var(--status-on-shield);
+}
+
+.status-card[data-enabled="false"] {
+  --card-border-color: var(--status-off-border);
+  --card-bg-color: var(--status-off-bg);
+  --card-shadow: none;
+  --indicator-bg: var(--status-off-dot-outer);
+  --dot-bg: var(--status-off-dot-inner);
+  --title-color: var(--status-off-title);
+  --desc-color: var(--status-off-desc);
+  --shield-stroke: var(--status-off-shield);
+}
+
+.status-card {
+  border-color: var(--card-border-color);
+  background-color: var(--card-bg-color);
+  box-shadow: var(--card-shadow);
+}
+
+.status-card .status-indicator {
+  background: var(--indicator-bg);
+}
+
+.status-card .status-dot {
+  background: var(--dot-bg);
+  box-shadow: none;
+}
+
+.status-card strong {
+  color: var(--title-color);
+}
+
+.status-card p {
+  color: var(--desc-color);
+}
+
+.status-card .status-shield svg {
+  stroke: var(--shield-stroke);
+  filter: none;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.switch input:checked + .slider {
+  background: var(--switch-on-bg);
+  box-shadow: var(--switch-on-shadow);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+.switch input:focus-visible + .slider {
+  outline: 3px solid var(--brand-ring-soft);
+  outline-offset: 2px;
+}
+
+.switch input:disabled + .slider {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+#reloadButton:hover:not(:disabled) {
+  background: var(--btn-primary-hover-bg);
+}
+
+#reloadButton.is-pending:not(:disabled) {
+  background: var(--btn-pending-bg);
+  box-shadow: var(--btn-pending-shadow), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+#reloadButton.is-pending:hover:not(:disabled) {
+  background: var(--btn-pending-hover-bg);
+}
+
+#reloadButton.is-reloading .button-icon svg {
+  animation: spinIcon 0.8s linear infinite;
+}
+
+.language-option {
+  color: var(--text-muted);
+  background: transparent;
+}
+
+.language-option:hover:not(:disabled) {
+  color: var(--text-main);
+  background: var(--header-btn-hover);
+}
+
+.language-option.is-active {
+  color: #fff;
+  background: var(--switch-on-bg);
+  box-shadow: none;
+}
+
+.language-option.is-active:hover:not(:disabled) {
+  color: #fff;
+  background: var(--switch-on-hover-bg);
+}
+
+.feedback {
+  --pill-color: var(--feedback-color);
+  padding-block: 0;
+  padding-inline: 0;
+  border: 0;
+  color: var(--pill-color);
+  background: color-mix(in srgb, var(--pill-color) 14%, transparent);
+}
+
+.feedback[data-kind="pending"] {
+  --pill-color: var(--pending-color);
+}
+
+.feedback[data-kind="error"] {
+  --pill-color: var(--error-color);
+}
+
+.feedback[data-kind="info"] {
+  --pill-color: var(--text-muted);
+}
+
+.feedback.has-message {
+  max-height: 24px;
+  padding-block: 7px;
+  padding-inline: 12px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feedback.has-message[data-kind="pending"] .feedback-icon {
+  animation: pendingPulse 1.6s ease-in-out infinite;
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||gateway.facebook.com/ws/realtime^",
+      "resourceTypes": ["websocket"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||gateway.facebook.com/ws/streamcontroller^",
+      "resourceTypes": ["websocket"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||mqtt-mini.facebook.com^",
+      "resourceTypes": ["websocket"]
+    }
+  }
+]
