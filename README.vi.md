@@ -4,11 +4,11 @@
 
 ![Popup FB Active Status bằng tiếng Việt](docs/images/popup-vi.png)
 
-Extension Chrome (Manifest V3) làm Facebook và Messenger hiện "Hoạt động 41 phút trước" thay cho "Đang hoạt động", vẫn giữ dòng thời gian hoạt động gần nhất.
+Extension Chrome này dùng Manifest V3. Nó làm Facebook và Messenger hiển thị thời gian hoạt động gần nhất thay cho "Đang hoạt động".
 
 ## Sao không tắt Trạng thái hoạt động của Facebook?
 
-Nút tắt Trạng thái hoạt động của Facebook ẩn luôn dòng "Hoạt động 41 phút trước". Extension này chặn ba endpoint WebSocket mang dữ liệu presence, nên Facebook lùi về dòng thời gian hoạt động gần nhất và vẫn hiện dòng đó.
+Nút tắt Trạng thái hoạt động của Facebook ẩn cả thời gian hoạt động gần nhất. Extension này chặn ba endpoint WebSocket truyền trạng thái hoạt động để Facebook vẫn hiển thị thời gian đó.
 
 ## Minh họa
 
@@ -22,13 +22,13 @@ Sau khi dùng, trạng thái hiển thị thời gian hoạt động gần đây
 
 ## Cài đặt
 
-1. Tải [file ZIP của extension](https://github.com/wakupparalyzed/FB-Active-Status/releases/download/v1.0.0/fb-active-status-v1.0.0.zip) và giải nén ra một thư mục.
+1. Tải [file ZIP của extension](https://github.com/vacuumbr/FB-Active-Status/releases/download/v1.0.0/fb-active-status-v1.0.0.zip) và giải nén ra một thư mục.
 2. Mở `chrome://extensions` trong Chrome.
 3. Bật Developer mode, rồi chọn Load unpacked.
 4. Chọn thư mục đã giải nén có chứa `manifest.json`, không chọn file ZIP.
-5. Mở một tab Facebook hoặc Messenger rồi tải lại tab đó. Tab đã mở trước khi bật chặn vẫn giữ hành vi cũ.
+5. Mở Facebook hoặc Messenger rồi tải lại tab đó. Tải lại các tab đang mở sau khi bật hoặc tắt chặn.
 
-## Dành cho developer
+## Phát triển
 
 Cài Node.js 20 trở lên, rồi build từ mã nguồn:
 
@@ -37,14 +37,16 @@ npm install
 npm run build
 ```
 
-Bản build nằm trong `dist/`, nạp thư mục này bằng Load unpacked khi phát triển. Dùng `npm run typecheck` để kiểm tra TypeScript mà không tạo output.
+Bản build nằm trong `dist/`. Chọn thư mục này bằng Load unpacked để kiểm tra extension trong Chrome.
+
+Dùng `npm run typecheck` để kiểm tra TypeScript mà không tạo tệp. Dùng `npm test` để kiểm tra số tab tải lại, dữ liệu trao đổi giữa popup và background, cùng cách xử lý lỗi.
 
 ## Cấu trúc chính
 
-- `src/`: mã TypeScript và CSS nguồn.
-- `public/`: manifest, popup, rules và asset cục bộ. Build sinh lại `popup.css` và `fonts/`, không chỉnh tay vào hai thư mục này.
-- `dist/`: extension sau khi build, không chỉnh trực tiếp.
-- `release/`: file ZIP mà `publish-release.ps1` đẩy lên GitHub Releases.
+- `src/`: mã nguồn TypeScript và CSS.
+- `public/`: manifest, popup, luật chặn và tài nguyên cục bộ. Quá trình build sinh ra tệp `popup.css` và các tệp trong thư mục `fonts/`. Không chỉnh trực tiếp các tệp sinh ra này.
+- `dist/`: extension sau khi build. Không chỉnh trực tiếp các tệp trong thư mục này.
+- `release/`: các tệp ZIP để tải lên GitHub Releases.
 
 ## Extension làm gì
 
@@ -52,11 +54,13 @@ Bản build nằm trong `dist/`, nạp thư mục này bằng Load unpacked khi 
 - Bật hoặc tắt chặn ngay trong popup.
 - Tải lại các tab Facebook và Messenger đang mở.
 - Chuyển ngôn ngữ popup giữa VI và EN.
-- Theo theme hệ thống, hoặc ép theme sáng/tối.
+- Dùng giao diện theo hệ thống hoặc chọn cố định giao diện sáng hay tối.
 
 ## Ảnh hưởng đã biết
 
-Ba endpoint bị chặn còn mang dữ liệu khác, nên Facebook và Messenger có thể hoạt động khác đi. Hãy thử trên tài khoản của bạn trước khi dùng lâu dài. Extension cài tay chạy ở developer mode, nên Chrome hiện cảnh báo cho extension này.
+Các endpoint bị chặn còn truyền dữ liệu khác ngoài trạng thái hoạt động. Extension cũng chặn dữ liệu đó. Hãy thử trên tài khoản của bạn trước khi dùng lâu dài.
+
+Chrome hiện cảnh báo với các extension cài qua Developer mode.
 
 ## Giấy phép
 

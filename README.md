@@ -4,11 +4,11 @@ English | [Tiếng Việt](README.vi.md)
 
 ![FB Active Status popup in English](docs/images/popup-en.png)
 
-A Chrome extension (Manifest V3) that makes Facebook and Messenger show "Active 41 minutes ago" instead of "Active now", while keeping the last-active line on screen.
+This Chrome extension uses Manifest V3. It makes Facebook and Messenger show the last active time instead of "Active now".
 
 ## Why not just turn off Facebook's Active Status?
 
-Facebook's own Active Status toggle hides the "Active 41 minutes ago" line as well. This extension blocks the three WebSocket endpoints that carry presence data, so Facebook falls back to the last-active timestamp and keeps showing it.
+Turning off Facebook's Active Status also hides the last active time. This extension blocks three WebSocket endpoints that carry active status data so Facebook still shows that time.
 
 ## Before and after
 
@@ -22,11 +22,11 @@ After, it shows the time since last active.
 
 ## Installation
 
-1. Download [the extension ZIP](https://github.com/wakupparalyzed/FB-Active-Status/releases/download/v1.0.0/fb-active-status-v1.0.0.zip) and extract it to a folder.
+1. Download [the extension ZIP](https://github.com/vacuumbr/FB-Active-Status/releases/download/v1.0.0/fb-active-status-v1.0.0.zip) and extract it to a folder.
 2. Open `chrome://extensions` in Chrome.
 3. Turn on Developer mode, then choose Load unpacked.
 4. Select the extracted folder that contains `manifest.json`, not the ZIP file itself.
-5. Open a Facebook or Messenger tab and reload it. Tabs loaded before you flip the toggle keep the old behaviour.
+5. Open Facebook or Messenger and reload the tab. Reload open tabs after turning blocking on or off.
 
 ## Development
 
@@ -37,14 +37,16 @@ npm install
 npm run build
 ```
 
-The build writes to `dist/`, which you can load with Load unpacked while developing. Run `npm run typecheck` to check TypeScript without writing output.
+The build writes the extension to `dist/`. Load this folder with Load unpacked to test it in Chrome.
+
+Run `npm run typecheck` to check TypeScript without generating files. Run `npm test` to test reload counts, message validation, and error handling.
 
 ## Project structure
 
 - `src/`: TypeScript and CSS sources.
-- `public/`: manifest, popup, rules, and local assets. The build regenerates `popup.css` and `fonts/`, so do not edit them by hand.
-- `dist/`: built extension. Do not edit.
-- `release/`: the ZIP that `publish-release.ps1` uploads to GitHub Releases.
+- `public/`: manifest, popup, rules, and local resources. The build generates `popup.css` and the files in `fonts/`. Do not edit these generated files.
+- `dist/`: the built extension. Do not edit its files directly.
+- `release/`: ZIP files for GitHub Releases.
 
 ## What it does
 
@@ -52,11 +54,13 @@ The build writes to `dist/`, which you can load with Load unpacked while develop
 - Turns blocking on or off from the popup.
 - Reloads open Facebook and Messenger tabs.
 - Switches the popup between Vietnamese and English.
-- Follows the system theme or forces light or dark.
+- Uses the system theme or a selected light or dark theme.
 
 ## Known effects
 
-Blocking realtime also affects how Facebook and Messenger behave, since the blocked endpoints also carry other data. Test with your own accounts before relying on it. A manually installed extension runs in developer mode, so Chrome shows a warning for it.
+The blocked endpoints carry data other than active status. The extension also blocks that data. Test with your own accounts before relying on it.
+
+Chrome shows a warning for extensions installed through Developer mode.
 
 ## License
 
