@@ -1,3 +1,4 @@
+import type * as lucideModule from "lucide";
 import {
   messageTypes,
   parseExtensionResponse,
@@ -9,6 +10,21 @@ import {
   type Language,
   type Theme,
 } from "./shared.js";
+
+type StateRequest = Exclude<
+  ExtensionRequest,
+  { type: typeof messageTypes.reloadFacebookTabs }
+>;
+
+type SettingRequest = Exclude<
+  StateRequest,
+  { type: typeof messageTypes.getState }
+>;
+
+type RealtimeBlockingRequest = Extract<
+  SettingRequest,
+  { type: typeof messageTypes.setRealtimeBlocking }
+>;
 
 type FeedbackKind = "success" | "pending" | "error" | "info";
 
@@ -96,27 +112,7 @@ const translations: Record<Language, Translation> = {
   },
 };
 
-declare namespace lucide {
-  function createElement(
-    iconNode: unknown,
-    customAttrs?: Record<string, string | number>,
-  ): SVGElement;
-  const icons: {
-    Sun: unknown;
-    Moon: unknown;
-    Contrast: unknown;
-    RotateCw: unknown;
-    Check: unknown;
-    Clock: unknown;
-    CircleAlert: unknown;
-    ShieldCheck: unknown;
-    ShieldAlert: unknown;
-    EyeOff: unknown;
-    UserRoundX: unknown;
-    Info: unknown;
-    [key: string]: unknown;
-  };
-}
+declare const lucide: Pick<typeof lucideModule, "createElement" | "icons">;
 
 const popupElementTags = {
   brandIcon: "span",
@@ -205,7 +201,7 @@ function getTranslation(): Translation {
 }
 
 async function sendRequest(
-  request: ExtensionRequest,
+  request: StateRequest,
 ): Promise<ExtensionStateResponse> {
   const raw: unknown = await chrome.runtime.sendMessage(request);
   const response: ExtensionResponse | undefined = parseExtensionResponse(raw);
@@ -435,7 +431,7 @@ type TranslationKey = {
 }[keyof Translation];
 
 interface ApplySettingOptions {
-  request: ExtensionRequest;
+  request: SettingRequest;
   onApplied: (state: ExtensionState) => void;
   errorKey: TranslationKey;
 }
@@ -464,7 +460,7 @@ async function applySetting({
   }
 }
 
-function updateSetting(request: ExtensionRequest): Promise<void> {
+function updateSetting(request: RealtimeBlockingRequest): Promise<void> {
   return applySetting({
     request,
     onApplied: (state) => {

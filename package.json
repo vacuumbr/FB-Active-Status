@@ -8,7 +8,7 @@
     "build": "node scripts/build.mjs",
     "build:css": "node node_modules/@tailwindcss/cli/dist/index.mjs -i src/popup.css -o public/popup.css --minify",
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "node --test tests/extension.test.mjs"
+    "test": "node --test tests/extension.test.mjs tests/popupTypes.test.mjs"
   },
   "engines": {
     "node": ">=20"
